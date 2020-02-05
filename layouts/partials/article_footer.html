@@ -1,8 +1,10 @@
 <footer class="article-footer">
-    <a data-url="{{ .Permalink }}" data-id="{{ .UniqueID }}" class="article-share-link">
-        <i class="fa fa-share"></i>
-        {{with .Site.Data.l10n.articles.share}}{{.}}{{end}}
-    </a>
+  <a data-url="{{ .Permalink }}"
+     {{ with .File }}{{ .UniqueID  }}data-id="{{ . }}"{{ end }}
+     class="article-share-link">
+    <i class="fa fa-share"></i>
+    {{with .Site.Data.l10n.articles.share}}{{.}}{{end}}
+  </a>
     {{ if and (not (eq .Site.DisqusShortname "")) (not .Params.disable_comments) }}
     <a href="{{ .Permalink }}#disqus_thread" class="article-comment-link">
         {{with .Site.Data.l10n.articles.comments}}{{.}}{{end}}
